@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 10
+      max-lifetime: 30000
+      connection-test-query: SELECT 1
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123QWE
+    url: jdbc:mysql://127.0.0.1:3306/media_room?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+server:
+  port: 80

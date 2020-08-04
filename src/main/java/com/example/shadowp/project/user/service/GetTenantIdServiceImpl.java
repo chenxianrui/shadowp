@@ -23,7 +23,7 @@ public class GetTenantIdServiceImpl implements IGetTenantIdService{
      * @return  用户对象
      */
     @Override
-    public List<User> selectByUserName(String userName) {
+    public User selectByUserName(String userName) {
 
 //        List<User> users = getTenantIdMapper.selectByUserName(userName, passWord);
 

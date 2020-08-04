@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-@MapperScan("com.example.shadowp.project.user.mapper")
+@MapperScan("com.example.shadowp.project.*.mapper")
 public class MybatisPlusConfig {
 
 

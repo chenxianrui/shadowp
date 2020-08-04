@@ -15,6 +15,6 @@ public interface IGetTenantIdService {
      * @param userName  用户名
      * @return
      */
-    public List<User> selectByUserName(String userName);
+    public User selectByUserName(String userName);
 
 }

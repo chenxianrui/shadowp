@@ -22,5 +22,5 @@ public interface GetTenantIdMapper extends BaseMapper<User> {
      */
     @SqlParser(filter = true)
     @Select("select * from user where user_name = #{userName};")
-    List<User> selectByUserName(String userName);
+    User selectByUserName(String userName);
 }

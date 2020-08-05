@@ -15,4 +15,6 @@ public class MessageConstant {
     public static final  String CHECK_CODE_MESSAGE = "验证码生成失败，请稍后重试";
     // 验证码不正确，请传入正确的
     public static final  String CHECK_CODE_ERROR_MESSAGE = "验证码不正确，请传入正确的";
+    // 无权限
+    public static final  String NO_PERMISSIONS = "没有权限";
 }

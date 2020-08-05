@@ -23,6 +23,10 @@ public class User {
 
     private String passWord;
 
+    private String roleName;
+
+    private String permission;
+
     public Long getId() {
         return id;
     }
@@ -53,5 +57,33 @@ public class User {
 
     public void setPassWord(String passWord) {
         this.passWord = passWord;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public String getPermission() {
+        return permission;
+    }
+
+    public void setPermission(String permission) {
+        this.permission = permission;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", tenantId=" + tenantId +
+                ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", roleName='" + roleName + '\'' +
+                ", permission='" + permission + '\'' +
+                '}';
     }
 }

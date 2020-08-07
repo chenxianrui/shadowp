@@ -1,6 +1,6 @@
-package com.example.shadowp.config;
+package com.example.shadowp.frame.shiro.config;
 
-import com.example.shadowp.shiro.MyRealm;
+import com.example.shadowp.frame.shiro.MyRealm;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -52,6 +52,7 @@ public class ShiroConfig {
         map.put("/logout", "logout");
         //对所有用户认证
         map.put("/**", "authc");
+//        map.put("/websocket", "anon,captchaValidate");
         //登录
         shiroFilterFactoryBean.setLoginUrl("/login");
         //首页

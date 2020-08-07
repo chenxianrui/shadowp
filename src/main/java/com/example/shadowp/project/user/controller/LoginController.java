@@ -1,12 +1,12 @@
 package com.example.shadowp.project.user.controller;
 
-import com.example.shadowp.constants.MessageConstant;
-import com.example.shadowp.context.MyContext;
-import com.example.shadowp.core.Result;
-import com.example.shadowp.core.ResultGenerator;
+import com.example.shadowp.frame.constants.MessageConstant;
+import com.example.shadowp.frame.context.MyContext;
+import com.example.shadowp.frame.core.Result;
+import com.example.shadowp.frame.core.ResultGenerator;
 import com.example.shadowp.project.user.dao.User;
-import com.example.shadowp.project.user.service.GetTenantIdServiceImpl;
-import com.example.shadowp.project.user.service.UserServiceImpl;
+import com.example.shadowp.project.user.service.impl.GetTenantIdServiceImpl;
+import com.example.shadowp.project.user.service.impl.UserServiceImpl;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -18,7 +18,6 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @Author aquarius_cxr

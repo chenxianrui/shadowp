@@ -1,7 +1,8 @@
-package com.example.shadowp.project.user.service;
+package com.example.shadowp.project.user.service.impl;
 
 import com.example.shadowp.project.user.dao.User;
 import com.example.shadowp.project.user.mapper.GetTenantIdMapper;
+import com.example.shadowp.project.user.service.IGetTenantIdService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -12,7 +13,7 @@ import java.util.List;
  * @Date 2020/7/24 21:30
  */
 @Service
-public class GetTenantIdServiceImpl implements IGetTenantIdService{
+public class GetTenantIdServiceImpl implements IGetTenantIdService {
 
     @Resource
     private GetTenantIdMapper getTenantIdMapper;

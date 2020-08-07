@@ -1,11 +1,11 @@
-package com.example.shadowp.handle;
+package com.example.shadowp.frame.mybatis_plus.handle;
 
 /**
  * @Author aquarius_cxr
  * @Date 2020/7/18 17:18
  */
 import com.baomidou.mybatisplus.extension.plugins.tenant.TenantHandler;
-import com.example.shadowp.context.MyContext;
+import com.example.shadowp.frame.context.MyContext;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.LongValue;

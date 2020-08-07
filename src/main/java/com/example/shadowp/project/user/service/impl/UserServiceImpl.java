@@ -1,7 +1,8 @@
-package com.example.shadowp.project.user.service;
+package com.example.shadowp.project.user.service.impl;
 
 import com.example.shadowp.project.user.dao.User;
 import com.example.shadowp.project.user.mapper.UserMapper;
+import com.example.shadowp.project.user.service.IUserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -11,7 +12,7 @@ import javax.annotation.Resource;
  * @Date 2020/8/2 14:51
  */
 @Service
-public class UserServiceImpl implements IUserService{
+public class UserServiceImpl implements IUserService {
 
     @Resource
     private UserMapper userMapper;

@@ -1,4 +1,4 @@
-package com.example.shadowp.shiro;
+package com.example.shadowp.frame.shiro;
 
 import com.example.shadowp.project.user.dao.User;
 import com.example.shadowp.project.user.mapper.GetTenantIdMapper;
@@ -10,7 +10,6 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
 
@@ -25,7 +24,6 @@ public class MyRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        System.out.println("doGetAuthorizationInfo");
         //获取前端输入的用户名
         String name = (String) principalCollection.getPrimaryPrincipal();
         //在数据库中获取该用户名的信息
@@ -43,7 +41,6 @@ public class MyRealm extends AuthorizingRealm {
         if (authenticationToken.getPrincipal() == null) {
             return null;
         }
-        System.out.println("doGetAuthenticationInfo");
         //获取用户信息
         String name = authenticationToken.getPrincipal().toString();
         User user = getTenantIdMapper.selectByUserName(name);

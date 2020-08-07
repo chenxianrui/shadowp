@@ -1,4 +1,4 @@
-package com.example.shadowp.constants;
+package com.example.shadowp.frame.constants;
 
 /**
  * @Author aquarius_cxr

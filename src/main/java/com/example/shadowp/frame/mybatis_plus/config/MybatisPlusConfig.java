@@ -1,4 +1,4 @@
-package com.example.shadowp.config;
+package com.example.shadowp.frame.mybatis_plus.config;
 
 /**
  * @Author aquarius_cxr
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.parsers.BlockAttackSqlParser;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.tenant.TenantSqlParser;
-import com.example.shadowp.handle.MyTenantHandler;
+import com.example.shadowp.frame.mybatis_plus.handle.MyTenantHandler;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

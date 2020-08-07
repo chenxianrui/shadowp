@@ -1,4 +1,4 @@
-package com.example.shadowp.core;
+package com.example.shadowp.frame.core;
 
 /**
  * 响应结果生成工具

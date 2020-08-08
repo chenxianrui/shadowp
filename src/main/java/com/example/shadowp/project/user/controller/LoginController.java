@@ -40,21 +40,29 @@ public class LoginController {
         //添加用户认证信息
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(user.getUserName(), user.getPassWord());
+        User users = null;
         try {
             //进行验证，这里可以捕获异常，然后返回对应信息
             subject.login(usernamePasswordToken);
+            // 登录成功，存取租户id
+            users = getTenantIdService.selectByUserName(user.getUserName());
+            Long tenantId = users.getTenantId();
+            myContext.setCurrentTenantId(tenantId);
         } catch (AuthenticationException e) {
             e.printStackTrace();
+//            return "error";
             return ResultGenerator.genFailResult(MessageConstant.LOGIN_MESSAGE);
         } catch (AuthorizationException e) {
             e.printStackTrace();
+//            return "no permissons";
             return ResultGenerator.genFailResult(MessageConstant.NO_PERMISSIONS);
         }
-        // 登录成功，存取租户id
-        User users = getTenantIdService.selectByUserName(user.getUserName());
-        Long tenantId = users.getTenantId();
-        myContext.setCurrentTenantId(tenantId);
+//        // 登录成功，存取租户id
+//        User users = getTenantIdService.selectByUserName(user.getUserName());
+//        Long tenantId = users.getTenantId();
+//        myContext.setCurrentTenantId(tenantId);
         return ResultGenerator.genSuccessResult(users);
+//        return "login success";
     }
 
     @RequiresRoles("admin")

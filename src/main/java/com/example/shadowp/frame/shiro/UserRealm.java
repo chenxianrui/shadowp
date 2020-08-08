@@ -17,17 +17,20 @@ import javax.annotation.Resource;
  * @Author aquarius_cxr
  * @Date 2020/8/4 22:44
  */
-public class MyRealm extends AuthorizingRealm {
+public class UserRealm extends AuthorizingRealm {
 
     @Resource
     private GetTenantIdMapper getTenantIdMapper;
 
+    //登录认证
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         //获取前端输入的用户名
         String name = (String) principalCollection.getPrimaryPrincipal();
         //在数据库中获取该用户名的信息
+        System.out.println("name: "+name);
         User user = getTenantIdMapper.selectByUserName(name);
+        System.out.println("user: "+user);
         //添加角色和权限
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
         simpleAuthorizationInfo.addRole(user.getRoleName());
@@ -35,6 +38,7 @@ public class MyRealm extends AuthorizingRealm {
         return simpleAuthorizationInfo;
     }
 
+    //权限认证
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         //加这一步的目的是在Post请求的时候会先进认证，然后在到请求

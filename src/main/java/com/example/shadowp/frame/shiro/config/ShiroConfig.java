@@ -1,6 +1,6 @@
 package com.example.shadowp.frame.shiro.config;
 
-import com.example.shadowp.frame.shiro.MyRealm;
+import com.example.shadowp.frame.shiro.UserRealm;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -29,8 +29,8 @@ public class ShiroConfig {
 
     //将自己的验证方式加入容器
     @Bean
-    public MyRealm myShiroRealm() {
-        MyRealm myRealm = new MyRealm();
+    public UserRealm myShiroRealm() {
+        UserRealm myRealm = new UserRealm();
         return myRealm;
     }
 
@@ -52,7 +52,7 @@ public class ShiroConfig {
         map.put("/logout", "logout");
         //对所有用户认证
         map.put("/**", "authc");
-//        map.put("/websocket", "anon,captchaValidate");
+        map.put("/websocket/**", "anon");
         //登录
         shiroFilterFactoryBean.setLoginUrl("/login");
         //首页

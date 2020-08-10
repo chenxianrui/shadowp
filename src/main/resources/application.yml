@@ -11,4 +11,4 @@ spring:
     password: 123QWE
     url: jdbc:mysql://127.0.0.1:3306/media_room?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
 server:
-  port: 80
+  port: 8080

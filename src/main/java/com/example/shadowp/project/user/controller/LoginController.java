@@ -24,6 +24,7 @@ import javax.annotation.Resource;
  * @Date 2020/7/24 21:29
  */
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class LoginController {
 
     @Resource
@@ -50,19 +51,14 @@ public class LoginController {
             myContext.setCurrentTenantId(tenantId);
         } catch (AuthenticationException e) {
             e.printStackTrace();
-//            return "error";
             return ResultGenerator.genFailResult(MessageConstant.LOGIN_MESSAGE);
         } catch (AuthorizationException e) {
             e.printStackTrace();
-//            return "no permissons";
+
             return ResultGenerator.genFailResult(MessageConstant.NO_PERMISSIONS);
         }
-//        // 登录成功，存取租户id
-//        User users = getTenantIdService.selectByUserName(user.getUserName());
-//        Long tenantId = users.getTenantId();
-//        myContext.setCurrentTenantId(tenantId);
         return ResultGenerator.genSuccessResult(users);
-//        return "login success";
+
     }
 
     @RequiresRoles("admin")

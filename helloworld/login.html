@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    Vue.prototype.$axios=axios
+    new Vue({
+        el:'#app',
+        template:
+        // '<div>{{ message }}<hr/>返回数据{{ data }}<hr/></div>' +
+        '<div><form>' +
+        '       用户名：<input type="text" v-model="username"><br>' +
+        '       密码：<input type="password" v-model="password"><br>' +
+        '       <button @click=getData($event)>登录</button>' +
+        '</form></div>',
+        data: {
+            username: '',
+            password: ''
+        },
+        methods: {
+            getData:function (event) {
+                // var mybody=this;
+                event.preventDefault();
+                let formData = new FormData();
+                formData.append('userName', this.username);
+                formData.append('passWord', this.password);
+                axios({
+                    method: 'post',
+                    url:'http://127.0.0.1:8080/login',
+                    data: formData,
+                    headers:{
+                        'Content-Type': 'application/json; charset=UTF-8',
+                        'encoding':'UTF-8'
+                    }
+                })
+                    .then(function (response) {
+                        console.log(response);
+                        // mybody.data = response.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error)
+                    })
+            }
+        }
+    })
+</script>
+</html>
